@@ -12,7 +12,7 @@
       v-model="modelValue"
       @focus="focus = true"
       @blur="handleBlur"
-      @input="e => $emit('update:modelValue', e.currentTarget.value)"
+      @input="(e: Event) => $emit('update:modelValue', (e.currentTarget as HTMLInputElement)?.value)"
     />
     <slot name="subfix"></slot>
     <b-icon

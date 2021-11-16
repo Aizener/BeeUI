@@ -18,7 +18,7 @@ const getColor = (type: keyof IColor): string => {
   return colors[type]
 }
 
-const getPX = (value: string) => value ? `${parseInt(value)}px` : ''
+const getPX = (value: string) => value.includes('%') ? value :  `${parseInt(value)}px`
 
 export {
   IColor,

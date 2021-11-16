@@ -62,6 +62,11 @@
         </template>
       </b-input>
     </div>
+    <div class="container-item">
+      <b-textarea v-model="textValue" placeholder="请输入" width="100"></b-textarea>
+      <b-textarea v-model="textValue" placeholder="请输入" :resizable="false"></b-textarea>
+      <b-textarea v-model="textValue" placeholder="请输入" max-width="300" max-height="200" min-width="200" min-height="100"></b-textarea>
+    </div>
   </div>
 </template>
 
@@ -72,6 +77,7 @@ const handleClick = () => {
   console.log('click.')
 }
 const inputValue = ref('')
+const textValue = ref('')
 </script>
 
 <style>
