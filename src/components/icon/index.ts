@@ -8,6 +8,7 @@ import DangerIcon from './svg/DangerIcon.vue'
 import WarnIcon from './svg/WarnIcon.vue'
 import SearchIcon from './svg/SearchIcon.vue'
 import MenuIcon from './svg/MenuIocn.vue'
+import ClearIcon from './svg/ClearIcon.vue'
 
 export {
   HomeIcon,
@@ -19,5 +20,6 @@ export {
   DangerIcon,
   WarnIcon,
   SearchIcon,
-  MenuIcon
+  MenuIcon,
+  ClearIcon
 }

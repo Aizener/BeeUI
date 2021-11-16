@@ -1,4 +1,4 @@
-interface IColor {
+type IColor = {
   default: string,
   primary: string,
   warning: string,
@@ -18,7 +18,10 @@ const getColor = (type: keyof IColor): string => {
   return colors[type]
 }
 
+const getPX = (value: string) => value ? `${parseInt(value)}px` : ''
+
 export {
   IColor,
-  getColor
+  getColor,
+  getPX
 }

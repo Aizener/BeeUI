@@ -10,8 +10,8 @@ import * as icons from './index'
 
 const props = defineProps({
   name: { type: String, required: true },
-  width: { type: String, default: '30' },
-  height: { type: String, default: '30' },
+  width: { type: String, default: '24' },
+  height: { type: String, default: '24' },
   fill: { type: String, default: '#333' }
 })
 const { name, width, height, fill } = toRefs(props)

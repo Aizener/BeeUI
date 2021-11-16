@@ -1,12 +1,12 @@
 <template>
-  <button class="b-button" :class="getClassName" :style="getStyle">
-    <span class="text"><slot></slot></span>
+  <button class="b-button" :class="getClassName" :style="getStyle" :disabled="disabled && 'disabled'">
+    <span class="b-text"><slot></slot></span>
   </button>
 </template>
 
 <script setup lang="ts">
 import { toRefs, computed, PropType } from 'vue'
-import { getColor, IColor } from '@/utils/index'
+import { getColor, getPX, IColor } from '@/utils/index'
 
 /**
  * @param type 按钮的类型
@@ -43,11 +43,11 @@ const getStyle = computed(() => {
   const display = block.value ? 'block' : ''
   let width = ''
   if (_width.value) {
-    width = `${parseInt(_width.value)}px`
+    width = getPX(_width.value)
   } else {
     width = block.value ? '100%' : ''
   }
-  const height = _height.value && `${parseInt(_height.value)}px`
+  const height = getPX(_height.value)
   return {
     width,
     height,
@@ -83,7 +83,7 @@ const getClassName = computed(() => {
     &:not(.disabled).fill.warning:active { box-shadow: 4px 4px 7px inset #FF7F50; }
     &:not(.disabled).fill.info:active { box-shadow: 4px 4px 7px inset #2E8B57; }
     &:not(.disabled).fill.danger:active { box-shadow: 4px 4px 7px inset red; }
-    &:not(.disabled):active > .text{
+    &:not(.disabled):active > .b-text {
       display: inline-block;
       transform: scale(.9);
     }
