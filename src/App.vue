@@ -27,6 +27,14 @@
     <div class="container-item">
       <b-icon name="home"></b-icon>
       <b-icon name="setting"></b-icon>
+      <b-icon name="delete"></b-icon>
+      <b-icon name="edit"></b-icon>
+      <b-icon name="loading"></b-icon>
+      <b-icon name="danger"></b-icon>
+      <b-icon name="warn"></b-icon>
+      <b-icon name="question"></b-icon>
+      <b-icon name="search"></b-icon>
+      <b-icon name="menu"></b-icon>
     </div>
   </div>
 </template>
@@ -47,7 +55,7 @@
   width: 520px;
   margin: 15px auto;
 }
-.b-button {
+.b-button, .b-icon {
   margin: 0 5px;
 }
 </style>
