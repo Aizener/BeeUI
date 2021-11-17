@@ -67,6 +67,11 @@
       <b-textarea v-model="textValue" placeholder="请输入" :resizable="false"></b-textarea>
       <b-textarea v-model="textValue" placeholder="请输入" max-width="300" max-height="200" min-width="200" min-height="100"></b-textarea>
     </div>
+    <div class="container-item">
+      <b-radio class="m-5">选项A</b-radio>
+      <b-radio class="m-5" type="square">选项B</b-radio>
+      <b-radio class="m-5" color="orange">选项C</b-radio>
+    </div>
   </div>
 </template>
 
