@@ -82,6 +82,7 @@ $color: var(--color);
   cursor: pointer;
   padding: 5px 4px 4px 6px;
   box-sizing: border-box;
+  transition: box-shadow .3s;
   &.active {
     border-radius: 5px;
     box-shadow: 3px 3px 3px inset #ccc;
