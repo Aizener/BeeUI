@@ -68,21 +68,34 @@
       <b-textarea v-model="textValue" placeholder="请输入" max-width="300" max-height="200" min-width="200" min-height="100"></b-textarea>
     </div>
     <div class="container-item">
-      <b-radio class="m-5">选项A</b-radio>
-      <b-radio class="m-5" type="square">选项B</b-radio>
-      <b-radio class="m-5" color="orange">选项C</b-radio>
+      <b-radio v-model="state.r1" label="1" class="m-5">选项A</b-radio>
+      <b-radio v-model="state.r1" label="2" class="m-5" type="square">选项B</b-radio>
+      <b-radio v-model="state.r1" label="3" class="m-5" color="orange">选项C</b-radio>
+      {{ state.r1 }}
+    </div>
+    <div class="container-item">
+      <b-radio-group v-model="state.r2">
+        <b-radio label="1" class="m-5">选项A</b-radio>
+        <b-radio label="2" class="m-5" type="square">选项B</b-radio>
+        <b-radio label="3" class="m-5" color="orange">选项C</b-radio>
+        {{ state.r2 }}
+      </b-radio-group>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { reactive, ref } from 'vue'
 
 const handleClick = () => {
   console.log('click.')
 }
 const inputValue = ref('')
 const textValue = ref('')
+const state = reactive({
+  r1: '1',
+  r2: '1'
+})
 </script>
 
 <style>

@@ -1,8 +1,8 @@
 <template>
   <div
     class="b-radio"
-    :class="[active && 'active']"
-    @click="active = !active"
+    :class="[active === label && 'active']"
+    @click="handleClick"
   >
     <div class="b-radio-entity" :class="getClass" :style="getStyle" :type="type"></div>
     <span class="b-text">
@@ -13,17 +13,48 @@
 
 <script setup lang="ts">
 import { getPX } from '@/utils'
-import { computed, ref, toRefs } from 'vue'
+import { computed, inject, ref, toRefs, watch } from 'vue'
 
 const props = defineProps({
   size: { type: String, default: '16' },
   type: { type: String, default: 'circle' },
-  color: { type: String, defualt: '#1e80ff' }
+  color: { type: String, defualt: '#1e80ff' },
+  modelValue: { type: String, default: '' },
+  label: { type: String, requried: true}
 })
 
-const { size, type, color } = toRefs(props)
+const emit = defineEmits(['update:modelValue'])
 
-const active = ref(false)
+const { size, type, color, modelValue, label } = toRefs(props)
+const active = ref()
+
+// 判断是否来自group组件，分别做不同操作
+const groupModelValue: any = inject('groupModelValue', '')
+let changeGroupModelVal: any
+if (groupModelValue) {
+  active.value = groupModelValue.value
+  changeGroupModelVal = inject('changeGroupModelVal')
+} else {
+  active.value = modelValue.value
+}
+
+// 监听自身组件传过来的数据
+watch(() => modelValue.value, newVal => {
+  active.value = newVal
+})
+
+// 监听group的数据
+watch(() => groupModelValue.value, newVal => {
+  active.value = newVal
+})
+
+const handleClick = () => {
+  if (groupModelValue) {
+    changeGroupModelVal(label?.value)
+  } else {
+    emit('update:modelValue', label?.value)
+  }
+}
 
 const getStyle = computed(() => {
   const width = getPX(size.value)
